@@ -32,7 +32,6 @@ namespace BeerTap.ApiServices
         {
             int officeId = ServiceHelper.GetUrlParameters<Office>(context, "OfficeId");
             int officeInfoId = ServiceHelper.GetUrlParameters<OfficeInfo>(context, "OfficeInfoId");
-
             var kegId = _repository.Get(officeInfoId);
 
             decimal tapMilliliter = resource.Milliliter;
