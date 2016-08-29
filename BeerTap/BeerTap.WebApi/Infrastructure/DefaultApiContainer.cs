@@ -15,12 +15,13 @@ using IQ.Platform.Framework.WebApi.Services.Installers;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using BeerTap.ApiServices;
 using BeerTap.ApiServices.Security;
+using BeerTap.DataPersistance;
+using BeerTap.DataPersistance.Repositories;
 using BeerTap.Documentation.Installers;
 using BeerTap.WebApi.Handlers;
 using BeerTap.WebApi.Hypermedia;
 using BeerTap.WebApi.Infrastructure.Installers;
 using BeerTap.Model;
-using BeerTap.DAL;
 using IQ.Platform.Framework.WebApi.Infrastructure;
 
 namespace BeerTap.WebApi.Infrastructure
@@ -61,12 +62,10 @@ namespace BeerTap.WebApi.Infrastructure
                          })
                          .InstallLogging();
 
-            //_windsorContainer.Register(Component.For<IApiUserFactory<ApiUser<UserAuthData>>>().ImplementedBy<DefaultApiUserFactory<UserAuthData>>());
             _windsorContainer.Register(Component.For<IRequestAuthenticator<UserAuthData>>().ImplementedBy<DefaultSsoBasedRequestAuthenticator>());
             _windsorContainer.Register(Component.For<DbContext>().ImplementedBy<BeerTapDbContext>());
-            _windsorContainer.Register(Component.For<OfficeInfoRepository>().ImplementedBy<OfficeInfoRepository>());
             _windsorContainer.Register(Component.For<OfficeRepository>().ImplementedBy<OfficeRepository>());
-
+            _windsorContainer.Register(Component.For<OfficeInfoRepository>().ImplementedBy<OfficeInfoRepository>());
         }
 
         protected override IEnumerable<DelegatingHandler> ResolveMessageHandlersInternal()

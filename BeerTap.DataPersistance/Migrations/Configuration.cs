@@ -1,14 +1,23 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+using System.Collections.Generic;
+using BeerTap.Transport;
 
-namespace BeerTap.DAL
+namespace BeerTap.DataPersistance.Migrations
 {
-    public class BeerTapDbContextSeeder : DropCreateDatabaseIfModelChanges<BeerTapDbContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<BeerTap.DataPersistance.BeerTapDbContext>
     {
-
-        protected override void Seed(BeerTapDbContext context)
+        public Configuration()
         {
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "BeerTap.DataPersistance.BeerTapDbContext";
+        }
 
+        protected override void Seed(BeerTap.DataPersistance.BeerTapDbContext context)
+        {
             OfficeData office1 = new OfficeData()
             {
                 OfficeName = "Vancouver",
@@ -68,7 +77,6 @@ namespace BeerTap.DAL
             context.Offices.Add(office5);
             context.Offices.Add(office6);
             base.Seed(context);
-
         }
     }
 }

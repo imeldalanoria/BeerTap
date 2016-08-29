@@ -1,5 +1,5 @@
 ﻿using BeerTap.Model;
-using BeerTap.DAL;
+using BeerTap.Transport;
 
 namespace BeerTap.WebApi.Infrastructure
 {

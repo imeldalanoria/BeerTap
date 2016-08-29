@@ -1,12 +1,13 @@
 ﻿using System.Data.Entity;
+using BeerTap.DataPersistance.Migrations;
+using BeerTap.Transport;
 
-namespace BeerTap.DAL
+namespace BeerTap.DataPersistance
 {
     public class BeerTapDbContext : DbContext
     {
-        public BeerTapDbContext(): base("Beertap") 
+        public BeerTapDbContext() : base("DefaultConnectionString")
         {
-           Database.SetInitializer(new BeerTapDbContextSeeder());
         }
 
         public DbSet<OfficeData> Offices { get; set; }

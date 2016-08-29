@@ -5,9 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using BeerTap.ApiServices.Security;
+using BeerTap.DataPersistance.Repositories;
 using BeerTap.Model;
 using IQ.Platform.Framework.WebApi;
-using BeerTap.DAL;
 
 namespace BeerTap.ApiServices
 {

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using BeerTap.Transport;
 
-namespace BeerTap.DAL
+namespace BeerTap.DataPersistance.Repositories
 {
     public class OfficeInfoRepository : RepositoryBase<OfficeInfoData>
     {

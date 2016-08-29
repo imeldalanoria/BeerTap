@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BeerTap.DAL
+namespace BeerTap.Transport
 {
     [Table("Office")]
     public class OfficeData

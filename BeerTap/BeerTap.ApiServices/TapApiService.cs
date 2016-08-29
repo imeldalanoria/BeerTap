@@ -3,7 +3,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using BeerTap.ApiServices.Security;
-using BeerTap.DAL;
+using BeerTap.DataPersistance.Repositories;
 using BeerTap.Model;
 using IQ.Platform.Framework.WebApi;
 using IQ.Platform.Framework.WebApi.Services.Security;
@@ -38,18 +38,19 @@ namespace BeerTap.ApiServices
             decimal remainingMilliliter = kegId.Milliliter;
 
             if (kegId.Milliliter <= 0)
-             throw context.CreateHttpResponseException<Tap>("This keg is empty", HttpStatusCode.BadRequest); 
-          
+                throw context.CreateHttpResponseException<Tap>("This keg is empty", HttpStatusCode.BadRequest);
+
             if (tapMilliliter > remainingMilliliter)
                 kegId.Milliliter = 0;
             else
-                kegId.Milliliter = remainingMilliliter - tapMilliliter;         
+                kegId.Milliliter = remainingMilliliter - tapMilliliter;
 
             _repository.Update(kegId);
             _repository.SaveChanges();
 
             context.LinkParameters.Set(new LinksParametersSource(officeId, officeInfoId));
             return Task.FromResult(new ResourceCreationResult<Tap, int>(resource));
+
         }
     }
 }

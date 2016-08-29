@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BeerTap.DAL
+namespace BeerTap.Transport
 {
     [Table("OfficeInfos")]
     public class OfficeInfoData

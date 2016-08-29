@@ -1,6 +1,7 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
-using BeerTap.DAL;
+using BeerTap.DataPersistance.Repositories;
 using BeerTap.Model;
 using IQ.Platform.Framework.WebApi;
 
@@ -28,7 +29,7 @@ namespace BeerTap.ApiServices
             _repository.SaveChanges();
 
             context.LinkParameters.Set(new LinksParametersSource(officeId, officeInfoId));
-            return Task.FromResult(new ResourceCreationResult<ReplaceKeg, int>(resource)); 
+            return Task.FromResult(new ResourceCreationResult<ReplaceKeg, int>(resource));
         }
     }
 }

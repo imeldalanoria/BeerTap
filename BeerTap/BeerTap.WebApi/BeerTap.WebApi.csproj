@@ -59,10 +59,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\BeerTap.ApiServices\bin\Debug\BeerTap.ApiServices.dll</HintPath>
     </Reference>
-    <Reference Include="BeerTap.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\BeerTap.DAL\bin\Debug\BeerTap.DAL.dll</HintPath>
-    </Reference>
     <Reference Include="CacheCow.Common, Version=0.5.9.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\CacheCow.Common.0.5.9\lib\net40\CacheCow.Common.dll</HintPath>
@@ -347,6 +343,14 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BeerTap.DataPersistance\BeerTap.DataPersistance.csproj">
+      <Project>{1B5CD0DE-E760-4A79-B376-90F59CEBBCE6}</Project>
+      <Name>BeerTap.DataPersistance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BeerTap.Transport\BeerTap.Transport.csproj">
+      <Project>{9A223A7F-DB81-4E01-A596-2E628D3F5A8E}</Project>
+      <Name>BeerTap.Transport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BeerTap.Model\BeerTap.Model.csproj">
       <Project>{f1be99c5-041c-4366-9e74-0ad3632a8611}</Project>
       <Name>BeerTap.Model</Name>

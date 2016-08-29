@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace BeerTap.DAL
+namespace BeerTap.DataPersistance.Repositories
 {
     public abstract class RepositoryBase<TEntity> where TEntity : class
     {

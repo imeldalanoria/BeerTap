@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
+using BeerTap.Transport;
 
-namespace BeerTap.DAL
+namespace BeerTap.DataPersistance.Repositories
 {
     public class OfficeRepository : RepositoryBase<OfficeData>
     {

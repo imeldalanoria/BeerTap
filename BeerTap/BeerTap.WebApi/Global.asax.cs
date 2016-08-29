@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Data.Entity;
+using System.Web.Http;
+using BeerTap.DataPersistance;
 using BeerTap.WebApi.Infrastructure;
 
 namespace BeerTap.WebApi
@@ -9,6 +11,7 @@ namespace BeerTap.WebApi
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<BeerTapDbContext>(null);
             BootStrapper.Initialize(GlobalConfiguration.Configuration);
             AutoMapperConfig.RegisterMappings();
         }
