@@ -13,20 +13,11 @@ namespace BeerTap.ApiServices
 {
     public class OfficeInfoApiService : IOfficeInfoApiService
     {
-        readonly IApiUserProvider<BeerTapApiUser> _userProvider;
-
         private OfficeInfoRepository _repository = null;
 
         public OfficeInfoApiService(OfficeInfoRepository repository)
         {
             _repository = repository;
-        }
-
-        public OfficeInfoApiService(IApiUserProvider<BeerTapApiUser> userProvider)
-        {
-            if (userProvider == null) throw new ArgumentNullException("userProvider");
-
-            _userProvider = userProvider;
         }
 
         public Task<OfficeInfo> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
